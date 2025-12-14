@@ -15,15 +15,14 @@ except mysql.connector.Error as err:
     print(f"Error: {err}")
     exit(1)
 
+db_name = "alx_book_store"
+sql = f"SHOW TABLES in {db_name}"
 
-sql = "show tables in %s"
-values = ("alx_book_store", )
 
-if mycursor.execute(sql, values):
+if mycursor.execute(sql):
     print ("Tables in 'alx_book_store':")
-    tables = mycursor.fetchall()
-    for table in tables:
-        print(table)
+   print(mycursor.fetchall())
+   
 else:
     print("Failed to retrieve tables from 'alx_book_store'.")
 mydb.close()
