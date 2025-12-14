@@ -15,8 +15,11 @@ except mysql.connector.Error as err:
     print(f"Error: {err}")
     exit(1)
 
-db_name = "alx_book_store"
-sql = f"SHOW TABLES in {db_name}"
+
+sql = "
+    USE alx_book_store;
+    SHOW TABLES;
+"
 
 
 if mycursor.execute(sql):
